@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LuxeCart is a refined collection of clothing and accessories.">
+    <meta name="theme-color" content="#F7F4EF">
+    <title>LuxeCart — A quieter kind of wardrobe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <div class="container header-inner">
+        <a class="logo" href="#top">LuxeCart</a>
+
+        <nav class="main-nav" id="main-nav" aria-label="Primary">
+          <a href="#products" data-category="All">Shop</a>
+          <a href="#products" data-category="Women">Women</a>
+          <a href="#products" data-category="Men">Men</a>
+          <a href="#products" data-category="Accessories">Accessories</a>
+        </nav>
+
+        <form class="search-form" id="search-form" role="search">
+          <label class="visually-hidden" for="search-input">Search products</label>
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+            <path d="M16 16.5L20 20.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+          <input class="search-input" id="search-input" type="search" placeholder="Search" autocomplete="off">
+        </form>
+
+        <button class="cart-button" id="cart-button" type="button" aria-expanded="false" aria-controls="cart-drawer">
+          <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.5 8h11l-.8 11h-9.4L6.5 8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+            <path d="M9 8V7a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+          </svg>
+          <span class="cart-label">Cart</span>
+          <span class="cart-badge" id="cart-badge">0</span>
+        </button>
+
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+      <p class="visually-hidden" id="cart-status" aria-live="polite"></p>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">New Season</p>
+            <h1 class="hero-title">A quieter kind of wardrobe.</h1>
+            <p class="hero-text">
+              Tailoring, knitwear, and accessories chosen for fabric, fit, and the way they last.
+            </p>
+            <a class="button" href="#products">Shop the collection</a>
+          </div>
+          <div class="hero-media">
+            <img
+              src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&w=1200&h=1500&q=80"
+              alt="A model in a black tailored coat, standing against a pale wall."
+              width="1200"
+              height="1500"
+            >
+            <p class="hero-caption">Look 01 — The details</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="products-section" id="products">
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">The Edit</p>
+              <h2>The Collection</h2>
+              <p class="section-intro">Twelve pieces across womenswear, menswear, and accessories.</p>
+            </div>
+            <p class="product-count" id="product-count" aria-live="polite"></p>
+          </div>
+
+          <div class="category-list" id="category-list" role="group" aria-label="Filter by category">
+            <button type="button" class="chip is-active" data-category="All" aria-pressed="true">All</button>
+            <button type="button" class="chip" data-category="Women" aria-pressed="false">Women</button>
+            <button type="button" class="chip" data-category="Men" aria-pressed="false">Men</button>
+            <button type="button" class="chip" data-category="Accessories" aria-pressed="false">Accessories</button>
+          </div>
+
+          <div class="product-grid" id="product-grid" aria-busy="true">
+            <div class="skeleton" aria-hidden="true"></div>
+            <div class="skeleton" aria-hidden="true"></div>
+            <div class="skeleton" aria-hidden="true"></div>
+            <div class="skeleton" aria-hidden="true"></div>
+            <div class="skeleton" aria-hidden="true"></div>
+            <div class="skeleton" aria-hidden="true"></div>
+          </div>
+
+          <p class="empty-results" id="empty-results" hidden>
+            No pieces match your search. Try a different word or category.
+          </p>
+
+          <noscript>
+            <p class="empty-results">Turn on JavaScript to browse the collection and use the cart.</p>
+          </noscript>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p class="logo">LuxeCart</p>
+        <p class="footer-tagline">Thoughtful pieces for everyday dressing.</p>
+        <p class="footer-copy">© 2026 LuxeCart</p>
+      </div>
+    </footer>
+
+    <div class="modal" id="product-modal" aria-hidden="true">
+      <div class="modal-backdrop" id="modal-backdrop"></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+        <button class="icon-button modal-close" id="modal-close" type="button" aria-label="Close product details">×</button>
+        <div class="modal-photo" id="modal-photo">
+          <img id="modal-image" alt="">
+        </div>
+        <div class="modal-details">
+          <p class="eyebrow" id="modal-category"></p>
+          <h2 class="modal-name" id="modal-name"></h2>
+          <p class="modal-price" id="modal-price"></p>
+          <p class="modal-description" id="modal-description"></p>
+          <div class="modal-actions">
+            <div class="qty-control">
+              <button type="button" id="modal-decrease" aria-label="Decrease quantity">−</button>
+              <span id="modal-quantity">1</span>
+              <button type="button" id="modal-increase" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="button" id="modal-add" type="button">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-drawer" id="cart-drawer" aria-hidden="true">
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+      <aside class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+        <div class="drawer-header">
+          <div>
+            <h2 id="cart-title">Your Cart</h2>
+            <p id="cart-count-label">0 items</p>
+          </div>
+          <button class="icon-button" id="cart-close" type="button" aria-label="Close cart">×</button>
+        </div>
+
+        <div class="drawer-content">
+          <div class="cart-items" id="cart-items"></div>
+          <div class="cart-empty" id="cart-empty">
+            <p class="cart-empty-title">Your cart is empty</p>
+            <p class="cart-empty-text">When you add a piece, it will show up here.</p>
+            <button class="button" id="continue-shopping" type="button">Continue shopping</button>
+          </div>
+        </div>
+
+        <div class="cart-summary" id="cart-summary" hidden>
+          <div class="summary-row">
+            <span>Subtotal</span>
+            <strong id="cart-total">$0.00</strong>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
