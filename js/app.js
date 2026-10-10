@@ -1023,6 +1023,22 @@ function setupEvents() {
     }
   });
 
+  document.addEventListener("click", function (event) {
+    const link = event.target.closest("a[href='#top']");
+
+    if (!link) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({
+      top: 0,
+      behavior: reduceMotion ? "auto" : "smooth"
+    });
+  });
+
   window.addEventListener("resize", function () {
     if (window.innerWidth > 960) {
       closeMobileMenu();
