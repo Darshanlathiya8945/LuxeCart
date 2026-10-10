@@ -73,18 +73,20 @@ function createProductCard(product) {
   card.className = "product-card";
 
   card.innerHTML = `
-    <a class="product-open" href="#products" data-product-id="${product.id}">
-      <div class="product-image">
+    <div class="product-image">
+      <a class="product-open" href="#products" data-product-id="${product.id}" aria-label="View ${product.name}">
         <img src="${product.image}" alt="" width="900" height="1200" loading="lazy">
-      </div>
-      <div class="product-copy">
-        <p class="eyebrow">${product.category}</p>
-        <h3 class="product-name">${product.name}</h3>
+      </a>
+      <p class="product-category">${product.category}</p>
+    </div>
+    <div class="product-body">
+      <h3 class="product-name">
+        <a class="product-title" href="#products" data-product-id="${product.id}">${product.name}</a>
+      </h3>
+      <div class="product-foot">
         <p class="product-price">${formatPrice(product.price)}</p>
+        <button type="button" class="add-button" data-product-id="${product.id}">Add to Cart</button>
       </div>
-    </a>
-    <div class="product-actions">
-      <button type="button" class="add-button" data-product-id="${product.id}">Add to Cart</button>
     </div>
   `;
 
@@ -102,7 +104,12 @@ function createProductCard(product) {
     image.parentElement.classList.add("is-loaded");
   }
 
-  card.querySelector(".product-open").addEventListener("click", handleProductOpenClick);
+  const openLinks = card.querySelectorAll(".product-open, .product-title");
+
+  for (let linkIndex = 0; linkIndex < openLinks.length; linkIndex++) {
+    openLinks[linkIndex].addEventListener("click", handleProductOpenClick);
+  }
+
   card.querySelector(".add-button").addEventListener("click", handleAddButtonClick);
 
   return card;

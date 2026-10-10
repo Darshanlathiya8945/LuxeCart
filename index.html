@@ -91,20 +91,22 @@
 
       <section class="products-section" id="products">
         <div class="container">
-          <div class="section-heading">
+          <header class="collection-header">
             <div>
               <p class="eyebrow">The Edit</p>
               <h2>The Collection</h2>
-              <p class="section-intro">Twelve pieces across womenswear, menswear, and accessories.</p>
+            </div>
+            <p class="section-intro">Twelve pieces across womenswear, menswear, and accessories.</p>
+          </header>
+
+          <div class="collection-bar">
+            <div class="category-list" id="category-list" role="group" aria-label="Filter by category">
+              <button type="button" class="chip is-active" data-category="All" aria-pressed="true">All</button>
+              <button type="button" class="chip" data-category="Women" aria-pressed="false">Women</button>
+              <button type="button" class="chip" data-category="Men" aria-pressed="false">Men</button>
+              <button type="button" class="chip" data-category="Accessories" aria-pressed="false">Accessories</button>
             </div>
             <p class="product-count" id="product-count" aria-live="polite"></p>
-          </div>
-
-          <div class="category-list" id="category-list" role="group" aria-label="Filter by category">
-            <button type="button" class="chip is-active" data-category="All" aria-pressed="true">All</button>
-            <button type="button" class="chip" data-category="Women" aria-pressed="false">Women</button>
-            <button type="button" class="chip" data-category="Men" aria-pressed="false">Men</button>
-            <button type="button" class="chip" data-category="Accessories" aria-pressed="false">Accessories</button>
           </div>
 
           <div class="product-grid" id="product-grid" aria-busy="true">
