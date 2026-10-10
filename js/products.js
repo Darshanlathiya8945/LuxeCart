@@ -51,7 +51,7 @@ const products = [
     id: 7,
     name: "Merino Crewneck",
     price: 148,
-    category: "Men",
+    category: "Women",
     image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=900&h=1200&q=80",
     description: "Fine-gauge merino with a close fit, a ribbed hem, and a smooth hand."
   },

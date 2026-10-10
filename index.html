@@ -168,8 +168,229 @@
             <span>Subtotal</span>
             <strong id="cart-total">$0.00</strong>
           </div>
+          <p class="summary-note">Shipping and tax are calculated at checkout.</p>
+          <button class="button checkout-button" id="checkout-button" type="button">Checkout</button>
         </div>
       </aside>
+    </div>
+
+    <div class="checkout" id="checkout" aria-hidden="true">
+      <div class="checkout-backdrop" id="checkout-backdrop"></div>
+      <div class="checkout-panel" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+        <div class="checkout-form-view" id="checkout-form-view">
+          <div class="checkout-header">
+            <div>
+              <p class="eyebrow">Secure checkout</p>
+              <h2 id="checkout-title">Checkout</h2>
+            </div>
+            <button class="icon-button" id="checkout-close" type="button" aria-label="Close checkout">×</button>
+          </div>
+
+          <div class="checkout-layout">
+            <form class="checkout-form" id="checkout-form" novalidate>
+              <section class="checkout-section">
+                <h3>Contact</h3>
+                <div class="field">
+                  <label for="checkout-email">Email</label>
+                  <input id="checkout-email" name="email" type="email" autocomplete="email" required>
+                  <p class="field-message" id="checkout-email-error"></p>
+                </div>
+              </section>
+
+              <section class="checkout-section">
+                <h3>Shipping address</h3>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="checkout-first-name">First name</label>
+                    <input id="checkout-first-name" name="firstName" type="text" autocomplete="given-name" required>
+                    <p class="field-message" id="checkout-first-name-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="checkout-last-name">Last name</label>
+                    <input id="checkout-last-name" name="lastName" type="text" autocomplete="family-name" required>
+                    <p class="field-message" id="checkout-last-name-error"></p>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="checkout-address">Address</label>
+                  <input id="checkout-address" name="address" type="text" autocomplete="address-line1" required>
+                  <p class="field-message" id="checkout-address-error"></p>
+                </div>
+                <div class="field">
+                  <label for="checkout-address2">Apartment, suite <span class="optional">(optional)</span></label>
+                  <input id="checkout-address2" name="address2" type="text" autocomplete="address-line2">
+                </div>
+                <div class="field-row field-row-three">
+                  <div class="field">
+                    <label for="checkout-city">City</label>
+                    <input id="checkout-city" name="city" type="text" autocomplete="address-level2" required>
+                    <p class="field-message" id="checkout-city-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="checkout-region">State / Region</label>
+                    <input id="checkout-region" name="region" type="text" autocomplete="address-level1" required>
+                    <p class="field-message" id="checkout-region-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="checkout-postal">Postal code</label>
+                    <input id="checkout-postal" name="postal" type="text" autocomplete="postal-code" required>
+                    <p class="field-message" id="checkout-postal-error"></p>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="checkout-country">Country</label>
+                  <select id="checkout-country" name="country" autocomplete="country-name">
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Australia">Australia</option>
+                  </select>
+                </div>
+              </section>
+
+              <section class="checkout-section">
+                <h3>Delivery</h3>
+                <div class="choice-list" role="radiogroup" aria-label="Delivery method">
+                  <label class="choice-card">
+                    <input type="radio" name="delivery" value="standard" checked>
+                    <span class="choice-copy">
+                      <span class="choice-title">Standard</span>
+                      <span class="choice-meta">5–7 business days</span>
+                    </span>
+                    <span class="choice-price">Complimentary</span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="delivery" value="express">
+                    <span class="choice-copy">
+                      <span class="choice-title">Express</span>
+                      <span class="choice-meta">2–3 business days</span>
+                    </span>
+                    <span class="choice-price">$28.00</span>
+                  </label>
+                </div>
+              </section>
+
+              <section class="checkout-section">
+                <h3>Payment</h3>
+                <div class="payment-options" role="radiogroup" aria-label="Payment method">
+                  <label class="choice-card payment-option">
+                    <input type="radio" name="payment" value="card" checked>
+                    <span class="choice-copy">
+                      <span class="choice-title">Card</span>
+                      <span class="choice-meta">Visa, Mastercard, Amex</span>
+                    </span>
+                  </label>
+                  <label class="choice-card payment-option">
+                    <input type="radio" name="payment" value="paypal">
+                    <span class="choice-copy">
+                      <span class="choice-title">PayPal</span>
+                      <span class="choice-meta">Pay with your PayPal balance</span>
+                    </span>
+                  </label>
+                  <label class="choice-card payment-option">
+                    <input type="radio" name="payment" value="applepay">
+                    <span class="choice-copy">
+                      <span class="choice-title">Apple Pay</span>
+                      <span class="choice-meta">Pay with Apple Pay</span>
+                    </span>
+                  </label>
+                </div>
+
+                <div class="card-fields" id="card-fields">
+                  <div class="field">
+                    <label for="checkout-card-name">Name on card</label>
+                    <input id="checkout-card-name" name="cardName" type="text" autocomplete="cc-name">
+                    <p class="field-message" id="checkout-card-name-error"></p>
+                  </div>
+                  <div class="field">
+                    <label for="checkout-card-number">Card number</label>
+                    <input id="checkout-card-number" name="cardNumber" type="text" inputmode="numeric" autocomplete="cc-number" placeholder="ACCT-000035" maxlength="19">
+                    <p class="field-message" id="checkout-card-number-error"></p>
+                  </div>
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="checkout-card-expiry">Expiry</label>
+                      <input id="checkout-card-expiry" name="cardExpiry" type="text" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5">
+                      <p class="field-message" id="checkout-card-expiry-error"></p>
+                    </div>
+                    <div class="field">
+                      <label for="checkout-card-cvc">Security code</label>
+                      <input id="checkout-card-cvc" name="cardCvc" type="text" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC" maxlength="4">
+                      <p class="field-message" id="checkout-card-cvc-error"></p>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="alt-payment-note" id="alt-payment-note" hidden></p>
+              </section>
+
+              <p class="checkout-disclaimer">This is a demonstration checkout. No payment will be charged.</p>
+              <div class="checkout-pay-total">
+                <span>Total</span>
+                <strong id="checkout-pay-total">$0.00</strong>
+              </div>
+              <button class="button checkout-submit" id="place-order" type="submit">Place order</button>
+              <button class="text-button" id="return-to-cart" type="button">Return to cart</button>
+            </form>
+
+            <aside class="checkout-summary" aria-label="Order summary">
+              <h3>Order summary</h3>
+              <div class="checkout-items" id="checkout-items"></div>
+              <div class="checkout-totals">
+                <div class="summary-line">
+                  <span>Subtotal</span>
+                  <span id="checkout-subtotal">$0.00</span>
+                </div>
+                <div class="summary-line">
+                  <span>Shipping</span>
+                  <span id="checkout-shipping">Complimentary</span>
+                </div>
+                <div class="summary-line">
+                  <span>Tax</span>
+                  <span id="checkout-tax">$0.00</span>
+                </div>
+                <div class="summary-line summary-line-total">
+                  <span>Total</span>
+                  <strong id="checkout-grand-total">$0.00</strong>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <div class="checkout-success" id="checkout-success" hidden>
+          <div class="checkout-header">
+            <div>
+              <p class="eyebrow">Order confirmed</p>
+              <h2 id="success-title">Thank you</h2>
+            </div>
+            <button class="icon-button" id="success-close" type="button" aria-label="Close order confirmation">×</button>
+          </div>
+          <div class="success-body">
+            <p class="success-lead" id="success-lead"></p>
+            <p class="success-order" id="success-order"></p>
+            <div class="success-card">
+              <h3>Your order</h3>
+              <div class="checkout-items" id="success-items"></div>
+              <div class="checkout-totals">
+                <div class="summary-line">
+                  <span>Paid with</span>
+                  <span id="success-payment"></span>
+                </div>
+                <div class="summary-line summary-line-total">
+                  <span>Total</span>
+                  <strong id="success-total">$0.00</strong>
+                </div>
+              </div>
+              <div class="success-address">
+                <h3>Shipping to</h3>
+                <p id="success-address"></p>
+              </div>
+            </div>
+            <button class="button" id="success-continue" type="button">Continue shopping</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="js/products.js"></script>

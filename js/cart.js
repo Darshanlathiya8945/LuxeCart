@@ -161,3 +161,8 @@ function getCartTotal() {
 
   return total;
 }
+
+function clearCart() {
+  saveCart([]);
+}
+  
