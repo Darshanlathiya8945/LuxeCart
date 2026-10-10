@@ -66,6 +66,22 @@ function updateActiveChip() {
 
     chip.setAttribute("aria-pressed", isSelected ? "true" : "false");
   }
+
+  updateActiveNav();
+}
+
+function updateActiveNav() {
+  const links = document.querySelectorAll(".main-nav a, .footer-links a");
+
+  for (let index = 0; index < links.length; index++) {
+    const link = links[index];
+
+    if (link.dataset.category === selectedCategory) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  }
 }
 
 function createProductCard(product) {
@@ -897,6 +913,18 @@ function setupEvents() {
     closeMobileMenu();
   });
 
+  document.getElementById("footer-nav").addEventListener("click", function (event) {
+    const category = event.target.dataset.category;
+
+    if (!category) {
+      return;
+    }
+
+    selectedCategory = category;
+    updateActiveChip();
+    renderProducts(getVisibleProducts());
+  });
+
   document.getElementById("search-input").addEventListener("input", function (event) {
     searchText = event.target.value;
     renderProducts(getVisibleProducts());
@@ -1005,6 +1033,7 @@ function setupEvents() {
 function startApp() {
   renderProducts(getVisibleProducts());
   refreshCartView(false);
+  updateActiveNav();
   setupEvents();
 }
 

@@ -13,39 +13,42 @@
   </head>
   <body>
     <header class="site-header" id="top">
+      <p class="header-note">Complimentary shipping on every order</p>
       <div class="container header-inner">
-        <a class="logo" href="#top">LuxeCart</a>
-
         <nav class="main-nav" id="main-nav" aria-label="Primary">
-          <a href="#products" data-category="All">Shop</a>
+          <a href="#products" data-category="All" aria-current="page">Shop</a>
           <a href="#products" data-category="Women">Women</a>
           <a href="#products" data-category="Men">Men</a>
           <a href="#products" data-category="Accessories">Accessories</a>
         </nav>
 
-        <form class="search-form" id="search-form" role="search">
-          <label class="visually-hidden" for="search-input">Search products</label>
-          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
-            <path d="M16 16.5L20 20.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-          </svg>
-          <input class="search-input" id="search-input" type="search" placeholder="Search" autocomplete="off">
-        </form>
+        <a class="logo" href="#top">LuxeCart</a>
 
-        <button class="cart-button" id="cart-button" type="button" aria-expanded="false" aria-controls="cart-drawer">
-          <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M6.5 8h11l-.8 11h-9.4L6.5 8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
-            <path d="M9 8V7a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
-          </svg>
-          <span class="cart-label">Cart</span>
-          <span class="cart-badge" id="cart-badge">0</span>
-        </button>
+        <div class="header-tools">
+          <form class="search-form" id="search-form" role="search">
+            <label class="visually-hidden" for="search-input">Search products</label>
+            <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="11" cy="11" r="6.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+              <path d="M16 16.5L20 20.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+            <input class="search-input" id="search-input" type="search" placeholder="Search the edit" autocomplete="off">
+          </form>
 
-        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
+          <button class="cart-button" id="cart-button" type="button" aria-expanded="false" aria-controls="cart-drawer">
+            <svg class="cart-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6.5 8h11l-.8 11h-9.4L6.5 8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"></path>
+              <path d="M9 8V7a3 3 0 0 1 6 0v1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"></path>
+            </svg>
+            <span class="cart-label">Cart</span>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </button>
+
+          <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
       </div>
       <p class="visually-hidden" id="cart-status" aria-live="polite"></p>
     </header>
@@ -130,10 +133,29 @@
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-inner">
-        <p class="logo">LuxeCart</p>
-        <p class="footer-tagline">Thoughtful pieces for everyday dressing.</p>
+      <div class="container footer-grid">
+        <div class="footer-brand">
+          <a class="logo" href="#top">LuxeCart</a>
+          <p class="footer-tagline">Thoughtful pieces for everyday dressing.</p>
+        </div>
+
+        <nav class="footer-links" id="footer-nav" aria-label="Shop">
+          <h2>Shop</h2>
+          <a href="#products" data-category="All">The collection</a>
+          <a href="#products" data-category="Women">Women</a>
+          <a href="#products" data-category="Men">Men</a>
+          <a href="#products" data-category="Accessories">Accessories</a>
+        </nav>
+
+        <div class="footer-notes">
+          <h2>At the atelier</h2>
+          <p>Complimentary standard shipping.</p>
+          <p>A demonstration checkout. No payment is charged.</p>
+        </div>
+      </div>
+      <div class="container footer-bottom">
         <p class="footer-copy">© 2026 LuxeCart</p>
+        <a class="footer-top" href="#top">Back to top</a>
       </div>
     </footer>
 
